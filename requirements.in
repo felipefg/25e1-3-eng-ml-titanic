@@ -5,3 +5,5 @@ kedro-datasets[pandas]
 notebook
 pyarrow
 pycaret[models,mlops]
+scikit-optimize
+kedro-mlflow

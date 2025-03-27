@@ -10,3 +10,26 @@ raw_train:
 train:
   type: pandas.ParquetDataset
   filepath: data/04_feature/train.parquet
+
+# Para salvar localmente:
+# lr_model:
+#   type: pickle.PickleDataset
+#   filepath: data/06_models/lr_model.pickle
+#
+# best_model:
+#   type: pickle.PickleDataset
+#   filepath: data/06_models/best_model.pickle
+
+
+# Logando no MLFlow:
+lr_model:
+  type: kedro_mlflow.io.models.MlflowModelTrackingDataset
+  flavor: mlflow.sklearn
+  save_args:
+    registered_model_name: titanic_lr_model
+
+best_model:
+  type: kedro_mlflow.io.models.MlflowModelTrackingDataset
+  flavor: mlflow.sklearn
+  save_args:
+    registered_model_name: titanic_best_model
